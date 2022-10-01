@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login to continue...</title>
+    <style>
+        body{
+            background-color: #D8D8D8;
+            color: #7C7BF8;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .container{
+            float:left;
+            width: 55%;
+        }
+        .hs {
+            text-align: center;
+            width: 95%;
+            padding: 5px 5px 5px 5px;
+            background-color: #4AFFBC;
+            color: #000000;
+            border: none;
+            border-radius: 20px;
+        }
+        .btn{
+            background-color: #7C7BF8;
+            color: #D8D8D8;
+            border:none;
+            border-radius:10px;
+        }
+        .tbl{
+            float:right;
+            background-color: #303030;
+            color: #D8D8D8;
+            width:44%;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="hs">Welcome to Software-a</h1>
+    <form>
+        <table>
+            <tr>
+                <td align="right"><label for="Username">Username :</label></td>
+                <td><input type="text" id="username" placeholder="Enter your username" required/></td>
+            </tr>
+            <tr>
+                <td align="right"><label for="Password">Password :</label></td>
+                <td><input type="password" id="password" placeholder="Enter your password" required/></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><button class="btn" id="submit" onclick="checkValues()">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function checkValues() {
+            let count = 0;
+            let uname = document.getElementById('username').value;
+            let pw = document.getElementById('password').value();
+            for (count = 0; count < 3; count++) {
+                if (pw == "admin") {
+                    document.write('Welcome');
+                    break;
+                }
+                else
+                    alert(count + " number of wrong attempts (max: 3)");
+            }
+            if (count == 3) {
+                close();
+            }
+        }
+    </script>
+</body>
+</html>

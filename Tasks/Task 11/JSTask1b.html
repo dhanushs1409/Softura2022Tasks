@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Form</title>
+</head>
+<body style="background-color:#100000; font-family:Arial, Helvetica, sans-serif; color:#CCDDCD">
+    <form>
+        <br />
+        <label for="fname" id="lbl_fname">First Name:</label>
+        <input type="text" id="fname" name="fname" style="background-color:#696969" />
+        <br />
+        <br />
+        <label for="lname" id="lbl_lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" style="background-color:#696969" />
+        <br />
+        <br />
+        <label for="age" id="lbl_age">Age:</label>
+        <input type="number" id="age" name="age" style="background-color:#696969" />
+        <br />
+        <br />
+        <input type="radio" name="Gender" id="m" value="Male" style="background-color:#696969" required /><label for="Male">Male</label>
+        <br />
+        <input type="radio" name="Gender" id="f" value="Female" style="background-color:#696969" /><label for="Female">Female</label>
+        <br />
+        <input type="radio" name="Gender" id="o" value="Others" style="background-color:#696969" /><label for="Others">Others</label>
+        <br />
+        <br />
+        <input type="checkbox" name="Qual1" id="Qual1" value="PostGrad" style="background-color:#696969" />
+        <label for="PostGrad">Post Graduation</label>
+        <br />
+        <input type="checkbox" name="Qual2" id="Qual2" value="Doctorate" style="background-color:#696969" />
+        <label for="Doctorate">Doctorate</label>
+        <br />
+        <br />
+        <input type="submit" value="Submit" onclick="validate()"/>
+    </form>
+    <script>
+        function validate() {
+            let fVal = document.getElementById("fname").value;
+            try {
+                if (fVal == "") throw "First Name is empty";
+                if (!isNaN(fVal)) throw "You have entered a number instead of First Name";
+            }
+            catch (err1) {
+                alert(err1);
+            }
+            let lVal = document.getElementById("lname").value;
+            try {
+                if (lVal == "") throw "Last Name is empty";
+                if (!isNaN(lVal)) throw "You have entered a number instead of Last Name";
+            }
+            catch (err2) {
+                alert(err2);
+            }
+            let aVal = document.getElementById("age").value;
+            try {
+                if (aVal == "") throw "Age is empty";
+                if (isNaN(aVal)) throw "You have entered a non-numeric value";
+                if (Number(aVal) < 0) throw "Age cannot be below zero";
+                if (Number(aVal) > 130) throw "Age doesn't seem right";
+            }
+            catch (err3) {
+                alert(err3);
+            }
+            
+        }
+    </script>
+</body>
+</html>
